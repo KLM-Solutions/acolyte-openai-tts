@@ -156,12 +156,34 @@ export default function ChatPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 p-4 flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-4 flex items-center justify-center">
       <div className="w-full max-w-2xl">
+        <div className="mb-4">
+          <a 
+            href="https://acolyte-sandbox.vercel.app/" 
+            className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors"
+          >
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="24" 
+              height="24" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              className="mr-2"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Acolyte Sandbox
+          </a>
+        </div>
         <Card className="shadow-lg">
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl font-bold text-gray-800">OpenAI Realtime Voice</CardTitle>
-            <p className="text-gray-600 mt-2">Convert your text to natural-sounding speech with OpenAI</p>
+            <CardTitle className="text-3xl font-bold text-blue-600">OpenAI Realtime Voice</CardTitle>
+            <p className="text-blue-600/80 mt-2">Convert your text to natural-sounding speech with OpenAI</p>
           </CardHeader>
           <CardContent className="space-y-6">
             {error && (
@@ -238,7 +260,7 @@ export default function ChatPage() {
               </Label>
             </div>
 
-            <Button onClick={handleGenerateSpeech} disabled={!text.trim() || isGenerating} className="w-full" size="lg">
+            <Button onClick={handleGenerateSpeech} disabled={!text.trim() || isGenerating} className="w-full bg-blue-600 hover:bg-blue-700" size="lg">
               {isGenerating ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -250,16 +272,16 @@ export default function ChatPage() {
             </Button>
 
             {audioUrl && (
-              <div className="space-y-4 p-4 bg-green-50 rounded-lg border border-green-200">
+              <div className="space-y-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-green-800">Speech generated successfully!</span>
+                  <span className="text-sm font-medium text-blue-800">Speech generated successfully!</span>
                   <div className="flex gap-2">
                     {!isPlaying ? (
                       <Button
                         onClick={handlePlayAudio}
                         variant="outline"
                         size="sm"
-                        className="text-green-700 border-green-300 hover:bg-green-100"
+                        className="text-blue-700 border-blue-300 hover:bg-blue-100"
                       >
                         <Volume2 className="mr-2 h-4 w-4" />
                         Play Audio
@@ -269,7 +291,7 @@ export default function ChatPage() {
                         onClick={handleStopAudio}
                         variant="outline"
                         size="sm"
-                        className="text-red-700 border-red-300 hover:bg-red-100"
+                        className="text-blue-700 border-blue-300 hover:bg-blue-100"
                       >
                         <Square className="mr-2 h-4 w-4" />
                         Stop
